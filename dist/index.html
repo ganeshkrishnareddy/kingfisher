@@ -5,14 +5,20 @@
   <meta name="theme-color" content="#c8102e">
   <title>Kingfisher — The King of Good Times</title>
   <meta name="description" content="Explore the Kingfisher family. An Indian icon, from the classic Premium and Strong to Ultra, Witbier and new Street Flavours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Sans+Bengali:wght@700&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+Kannada:wght@700&family=Noto+Sans+Malayalam:wght@700&family=Noto+Sans+Tamil:wght@700&family=Noto+Sans+Telugu:wght@700&display=swap">
   <link rel="preload" href="assets/anton.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="assets/strong.jpg" as="image">
+  <link rel="preload" href="assets/strong-cut.webp" as="image">
   <link rel="stylesheet" href="styles.css">
+  <script>try{var t=localStorage.getItem('kf-theme');if(t==='night'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='night'}catch(e){}</script>
   <script src="app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#beer">Skip to beer details</a>
   <div class="grain" aria-hidden="true"></div>
+  <div class="ladi" aria-hidden="true"></div>
+  <div class="petal-layer" aria-hidden="true"></div>
   <aside class="rail" aria-label="Page controls">
     <button class="menu-toggle" aria-label="Open navigation" aria-controls="menu" aria-expanded="false"><span></span><span></span></button>
     <a class="rail-mark" href="#top" aria-label="Back to top">K<span>F</span></a>
@@ -22,19 +28,22 @@
   </aside>
   <header class="header">
     <a class="brand" href="#top" aria-label="Kingfisher home"><img src="assets/brand-stamp.svg" alt="Kingfisher"></a>
-    <nav aria-label="Main navigation"><a href="#story">Our story</a><a href="#pairings">Good company</a><a class="button red" href="#range">Our beers <span>↗</span></a></nav>
+    <nav aria-label="Main navigation"><a href="#story">Our story</a><a href="#pairings">Good company</a><button class="theme-toggle" aria-pressed="false"><span class="theme-label">Diwali night</span></button><a class="button red" href="#range">Our beers <span>↗</span></a></nav>
   </header>
   <nav id="menu" class="menu" aria-label="Expanded navigation" inert>
     <span class="eyebrow">WELCOME TO THE GOOD TIMES</span>
-    <a href="#top">THE KING.<sup>01</sup></a><a href="#beer">THE BEER.<sup>02</sup></a><a href="#story">THE STORY.<sup>03</sup></a><a href="#range">THE FAMILY.<sup>04</sup></a><a href="#pairings">THE COMPANY.<sup>05</sup></a>
+    <a href="#top">THE KING.<sup lang="hi">राजा</sup></a><a href="#beer">THE BEER.<sup lang="hi">बियर</sup></a><a href="#story">THE STORY.<sup lang="hi">कहानी</sup></a><a href="#range">THE FAMILY.<sup lang="hi">परिवार</sup></a><a href="#pour">THE POUR.<sup lang="hi">जाम</sup></a><a href="#pairings">THE COMPANY.<sup lang="hi">महफ़िल</sup></a>
     <p>An Indian icon. A world of good times.</p>
   </nav>
   <main id="top">
     <div class="bottle-journey" id="journey">
       <div class="bottle-track" aria-hidden="true"><div class="bottle-anchor"><div id="hero-bottle" class="hero-bottle"></div></div></div>
       <section class="hero scene" data-page="01" aria-labelledby="hero-title">
+        <div class="toran" aria-hidden="true"></div>
         <div class="hero-overline"><span>AN INDIAN ORIGINAL</span><span>EST. 1857</span></div>
         <h1 id="hero-title" class="display hero-title"><span>THE KING OF</span><span>GOOD TIMES.</span></h1>
+        <p class="hero-hindi" lang="hi">किंग ऑफ़ गुड टाइम्स</p>
+        <div class="diyas" role="group" aria-label="Light the diyas"></div>
         <div class="hero-bottom"><p>Same familiar bird.<br>A feeling like no other.</p><a class="scroll-link" href="#beer">SCROLL TO DISCOVER <span>↓</span></a><p class="hero-origin">BREWED FOR<br>THE INDIAN SPIRIT.</p></div>
       </section>
       <section id="beer" class="beer-details scene" data-page="02" aria-labelledby="beer-title">
@@ -59,12 +68,39 @@
         <p class="range-note">The Kingfisher portfolio. Availability, packaging and alcohol content vary by region. Refer to the local pack.</p>
       </section>
     </div>
-    <section id="pairings" class="pairings scene" data-page="05" aria-labelledby="pairing-title">
-      <div class="pairing-image reveal"><img src="assets/food.jpg" alt="Tandoori chicken served with Kingfisher beer" loading="lazy"><span class="image-caption">BIG FLAVOURS. FAMILIAR FAVOURITES.</span></div>
-      <div class="pairing-copy reveal"><span class="script">Pull up a chair.</span><h2 id="pairing-title" class="display">INDIAN SOUL.<br>GOOD<br>COMPANY.</h2><p>Smoky tandoori. Tangy chaat. A table full of stories. Explore a few food-pairing ideas for the Kingfisher family.</p><button class="button dark" id="pairings-button">Find your pairing <span>↗</span></button></div>
+    <section id="pour" class="pour scene" data-page="05" aria-labelledby="pour-title">
+      <div class="pour-stage" aria-hidden="true"></div>
+      <div class="pour-copy reveal"><span class="script">Thoda dhyaan se.</span><h2 id="pour-title" class="display">POUR IT<br>RIGHT.</h2><p id="pour-help">Lift the bottle by its base to tip it, or hold the button. The steeper the tilt, the faster it pours and the more it foams. Fill to the line, leave two fingers of foam, then serve.</p></div>
+      <div class="pour-controls">
+        <p class="pour-status" id="pour-status" aria-live="polite"></p>
+        <div class="pour-actions"><button class="button red pour-hold" id="pour-hold" aria-describedby="pour-help">Hold to pour <span aria-hidden="true">↓</span></button><button class="button dark" id="pour-serve" disabled>Serve it <span aria-hidden="true">↗</span></button><button class="pour-sound" id="pour-sound" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>Pour sound</button></div>
+        <div class="pour-result" id="pour-result" aria-live="polite"></div>
+      </div>
     </section>
-    <section class="flavour-feature scene" data-page="05" aria-label="Kingfisher Street Flavours"><div class="flavour-copy reveal"><span class="eyebrow">A NEW CHAPTER IN THE FAMILY</span><h2 class="display">A LITTLE<br>DESI TWIST.</h2><p>Lemon Masala. Mango Berry Twist.<br>Indian-inspired flavours, with the familiar bird.</p><button class="button dark" data-show-flavours>Meet the flavours <span>↗</span></button></div><div class="flavour-art" id="flavour-art" aria-hidden="true"></div><span class="flavour-doodle" aria-hidden="true">✳</span></section>
-    <footer class="footer"><span class="eyebrow">THE BIRD YOU KNOW. THE SPIRIT YOU LOVE.</span><a class="display footer-title" href="#top">GOOD TIMES.<span>↑</span></a><div class="footer-links"><a href="#range">Our beers</a><a href="#story">Our story</a><a href="#pairings">Food & company</a><a href="https://www.unitedbreweries.com/" target="_blank" rel="noopener">United Breweries ↗</a></div><div class="footer-bottom"><p>Independent design concept. Kingfisher and product trademarks belong to their respective owners.</p><p>For adults of legal drinking age in their region.<br>Enjoy responsibly. Never drink and drive.</p><button class="text-link" id="sources-button">Product & image credits ↗</button></div></footer>
+    <section id="pairings" class="company scene" data-page="06" aria-labelledby="pairing-title">
+      <div class="company-copy reveal"><span class="script">Pull up a chair.</span><h2 id="pairing-title" class="display">INDIAN SOUL.<br>GOOD COMPANY.</h2><p>Every city has a plate it swears by. Pick a station to see what’s on the table there, and which Kingfisher to pour with it.</p></div>
+      <div class="station" id="station-panel" role="tabpanel">
+        <div class="station-board"><div class="station-sign" id="station-sign"></div><div class="station-posts" aria-hidden="true"><span></span><span></span></div></div>
+        <div class="station-plate" id="station-plate" aria-live="polite"></div>
+      </div>
+      <div class="departures">
+        <div class="departures-head" aria-hidden="true"><span>PF</span><span>Station</span><span>Aaj ka special</span></div>
+        <div class="departure-list" id="departures" role="tablist" aria-label="Choose a city" aria-orientation="vertical"></div>
+        <p class="departures-note">Editorial pairing ideas. Alcohol laws and availability vary by state.</p>
+      </div>
+    </section>
+    <section class="flavour-feature scene" data-page="06" aria-label="Kingfisher Street Flavours"><div class="flavour-copy reveal"><span class="eyebrow">A NEW CHAPTER IN THE FAMILY</span><h2 class="display">A LITTLE<br>DESI TWIST.</h2><p>Lemon Masala. Mango Berry Twist.<br>Indian-inspired flavours, with the familiar bird.</p><button class="button dark" data-show-flavours>Meet the flavours <span>↗</span></button></div><div class="flavour-art" id="flavour-art" aria-hidden="true"></div><svg class="flavour-doodle" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#genda"/></svg></section>
+    <footer class="footer"><span class="eyebrow">THE BIRD YOU KNOW. THE SPIRIT YOU LOVE.</span><a class="display footer-title" href="#top">GOOD TIMES.<span>↑</span></a>
+      <div class="truck">
+        <div class="truck-panel">
+          <span class="truck-small">USE DIPPER AT NIGHT</span>
+          <button class="truck-horn" id="horn" aria-label="Sound the horn"><span>HORN</span><span class="truck-ok">OK</span><span>PLEASE</span></button>
+          <p class="truck-hindi" lang="hi">पीकर गाड़ी न चलाएँ</p>
+          <p class="truck-english">Never drink and drive.</p>
+        </div>
+        <span class="script truck-hint">Go on, press the horn.</span>
+      </div>
+      <div class="footer-links"><a href="#range">Our beers</a><a href="#story">Our story</a><a href="#pour">Pour it right</a><a href="#pairings">Food & company</a><a href="https://www.unitedbreweries.com/" target="_blank" rel="noopener">United Breweries ↗</a></div><div class="footer-bottom"><p>Independent design concept. Kingfisher and product trademarks belong to their respective owners.</p><p>For adults of legal drinking age in their state.<br>Enjoy responsibly.</p><button class="text-link" id="sources-button">Product & image credits ↗</button></div></footer>
   </main>
   <dialog id="detail-dialog" class="detail-dialog"><button class="dialog-close" aria-label="Close dialog">×</button><div id="dialog-content"></div></dialog>
   <div class="toast" role="status" aria-live="polite"></div>
