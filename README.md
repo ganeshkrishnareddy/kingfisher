@@ -1,12 +1,19 @@
 # Kingfisher — The King of Good Times
 
-A complete, buildless, responsive website adapted from the supplied 15.7-second Lagunitas page-reference recording. All displayed products are Kingfisher variants.
+**Built by P Ganesh Krishna Reddy**
+
+A complete, buildless, responsive website adapted for Kingfisher. All displayed products are Kingfisher variants.
+
+## Live Deployments
+
+- **Vercel Production**: [https://kingfisher-tawny.vercel.app](https://kingfisher-tawny.vercel.app)
+- **GitHub Pages**: [https://ganeshkrishnareddy.github.io/kingfisher/](https://ganeshkrishnareddy.github.io/kingfisher/)
 
 ## Run or deploy
 
-Serve `dist/` using any static server, for example `python -m http.server 8741 --directory dist`. No package installation, API key, build step or runtime framework is required. Sites deployment is configured in `.openai/hosting.json`.
+Serve `dist/` using any static server, for example `python -m http.server 8741 --directory dist`. No package installation, API key, build step or runtime framework is required.
 
-The site is live at https://gireeshkumarreddy.github.io/kingfisher/. Every push to `main` republishes `dist/` to GitHub Pages through `.github/workflows/pages.yml`.
+Every push to `main` automatically redeploys to Vercel and republishes `dist/` to GitHub Pages through `.github/workflows/pages.yml`.
 
 ## Experience
 
